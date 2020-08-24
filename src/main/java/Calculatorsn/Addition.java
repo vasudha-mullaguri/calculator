@@ -9,7 +9,7 @@ public class Addition extends Calculators{
 			sum=sum+a[i];
 		}
 		
-		System.out.println(sum);	
+		System.out.println("The sum of the number is:"+sum);	
 		}
 	}
 

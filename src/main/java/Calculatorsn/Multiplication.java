@@ -8,7 +8,7 @@ public class Multiplication extends Calculators{
 			mul=mul*a[i];
 		}
 		
-		System.out.println(mul);	
+		System.out.println("The multiplication of the numbers is:"+mul);	
 		}
 
 }

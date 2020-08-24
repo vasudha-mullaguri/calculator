@@ -16,6 +16,10 @@ public class Calculators {
 		}
 		Addition ad=new Addition();
 		ad.add(a);
+		Substraction subs=new Substraction();
+		subs.sub(a);
+		Multiplication multi=new Multiplication();
+		multi.mul(a);
 		
 	}
 }

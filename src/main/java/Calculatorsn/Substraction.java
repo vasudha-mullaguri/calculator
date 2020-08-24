@@ -8,7 +8,7 @@ public class Substraction extends Calculators{
 			sub=a[i]-sub;
 		}
 		
-		System.out.println(sub);	
+		System.out.println("The substraction of numbers is:"+sub);	
 		}
 
 }

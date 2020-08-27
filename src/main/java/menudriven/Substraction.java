@@ -3,6 +3,7 @@ package menudriven;
 import java.util.Scanner;
 
 public class Substraction extends Calculator{
+	//the method is used to perform subtraction of numbers
 	public void sub(){
 		int size,subnum=0;
 		Scanner input=new Scanner(System.in);

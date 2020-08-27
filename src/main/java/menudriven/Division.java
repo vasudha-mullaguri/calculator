@@ -1,23 +1,33 @@
 package menudriven;
 
+import java.util.Scanner;
+
 public class Division extends Calculator{
-	public void div(int a[]){
-	    int divisor=a[0];
-	    int divident=a[1];
-	    int quoitent=1;
-		for(int i=0; i<=a.length-1;i++)
+	//the method is used to perform division of numbers
+	public void divide(){  
+		Scanner input=new Scanner(System.in);
+		System.out.println("enter the divisor");
+		int divisor=input.nextInt();
+		System.out.println("enter the divident");
+		int divident=input.nextInt();
+		int quiotient;
+				
+		quiotient=divisor/divident;
+		System.out.println(quiotient);
+		//while(divisor!=0){
+	    //System.out.println("Do you want to continue the division 1.yes\n 2.No");
+		//}
+		int option=input.nextInt();
+		if(option==1)
 		{
-			quoitent=divident/divisor;
-			divisor=quoitent;
-		
-		if(i<a.length-2)
+			System.out.println("enter next divisor");
+			int divisor2=input.nextInt();
+			divisor=quiotient;
+			quiotient=divisor/divisor2;
+		}
+		else
 		{
-			divident=a[i+1];
+		  System.out.println(quiotient);	
 		}
-		
-		}
-		System.out.println("The division of the numbers is:"+quoitent);	
-		}
-
-
+	}
 }

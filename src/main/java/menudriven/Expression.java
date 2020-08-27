@@ -12,14 +12,10 @@ public class Expression extends Calculator {
         System.out.println("Enter the expression");
         expression=input.next();
         char[] tokens = expression.toCharArray(); 
+        
+        Stack<Integer> values = new Stack<Integer>(); // Stack for numbers: 'values' 
 
-         // Stack for numbers: 'values' 
-
-        Stack<Integer> values = new Stack<Integer>(); 
-
-        // Stack for Operators: 'ops' 
-
-        Stack<Character> ops = new Stack<Character>(); 
+        Stack<Character> ops = new Stack<Character>(); // Stack for Operators: 'ops'
 
         for (int i = 0; i < tokens.length; i++) 
 
@@ -30,15 +26,15 @@ public class Expression extends Calculator {
             // Current token is a number, push it to stack for numbers 
            if (tokens[i] >= '0' && tokens[i] <= '9') 
                { 
-                    StringBuffer sbuf = new StringBuffer(); 
+                    StringBuffer stringbuf = new StringBuffer(); 
 
                 // There may be more than one digits in number 
 
                 while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') 
 
-                    sbuf.append(tokens[i++]); 
+                    stringbuf.append(tokens[i++]); 
 
-                values.push(Integer.parseInt(sbuf.toString())); 
+                values.push(Integer.parseInt(stringbuf.toString())); 
 
             } 
 
@@ -61,33 +57,23 @@ public class Expression extends Calculator {
 
             } 
 
-            // Current token is an operator. 
-            else if (tokens[i] == '+' || tokens[i] == '-' || 
+            
+            else if (tokens[i] == '+' || tokens[i] == '-' ||    //check for he operator
 
                      tokens[i] == '*' || tokens[i] == '/') 
 
             { 
 
-                // While top of 'ops' has same or greater precedence to current 
-
-                // token, which is an operator. Apply operator on top of 'ops' 
-
-                // to top two elements in values stack 
-
+                
                 while (!ops.empty() && hasPrecedence(tokens[i], ops.peek())) 
 
                   values.push(applyOp(ops.pop(), values.pop(), values.pop())); 
-
-                 // Push current token to 'ops'. 
-
-                ops.push(tokens[i]); 
+                
+                ops.push(tokens[i]); // Push current token to 'ops'. 
 
             } 
 
         } 
-       // Entire expression has been parsed at this point, apply remaining 
-
-        // ops to remaining values 
 
         while (!ops.empty()) 
 
@@ -98,10 +84,6 @@ public class Expression extends Calculator {
         return values.pop();
 
     } 
-
-    // Returns true if 'op2' has higher or same precedence as 'op1', 
-
-    // otherwise returns false. 
 
     public static boolean hasPrecedence(char op1, char op2) 
 
@@ -121,9 +103,6 @@ public class Expression extends Calculator {
 
     } 
 
-    // A utility method to apply an operator 'op' on operands 'a'  
-
-    // and 'b'. Return the result. 
      public static int applyOp(char op, int b, int a) 
 
     { 
@@ -149,9 +128,7 @@ public class Expression extends Calculator {
             
 
     }
-
-  
-
+     
 	}
 	
 

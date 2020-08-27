@@ -14,24 +14,21 @@ public class Calculator {
 			switch (option)
 			{
 			case 1:
-		          System.out.println("Addition of two numbers");
 			      Addition addition=new Addition();
 			      addition.add();
 		          break;
 			case 2:
-				  System.out.println("Substraction of two numbers");
 			      Substraction subs=new Substraction();
 			      subs.sub();
 		          break;
 			case 3:
-				System.out.println("Multiplication of two numbers");
-			      Multiplication mult=new Multiplication();
-			     mult.multi();
+			      Multiplication multiplication=new Multiplication();
+			      multiplication.multi();
 		          break;  
 			case 4:
-				System.out.println("Division of two numbers");
+				Division division=new Division();
+				division.divide();
 			case 5:
-				System.out.println("Result of the expression is:");
 				Expression expression=new Expression();
 				System.out.println(expression.evaluate());
 				

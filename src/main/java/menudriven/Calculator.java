@@ -6,9 +6,11 @@ public class Calculator {
 	public void menuDriven(){
 
 		int exponent;
+		Scanner input=new Scanner(System.in);
 		do
 		{
-			Scanner input=new Scanner(System.in);
+			try {
+			
 			System.out.println("enter your choice \n 1.Addition \n 2.Substraction \n 3.Multiplication \n 4.division \n 5.Expression");
 			int option=input.nextInt();
 			switch (option)
@@ -28,23 +30,31 @@ public class Calculator {
 			case 4:
 				Division division=new Division();
 				division.divide();
+				break;
 			case 5:
 				Expression expression=new Expression();
 				System.out.println(expression.evaluate());
 				
 				break;
-			default:
-				System.out.println("Invalid Choice");
 			}
+			}
+			catch(Exception e) {
+				System.out.println("Invalid Choice,try again");
+			}
+			finally {
 			System.out.println("Do you want to continue? 1.yes 2.No");
 			 exponent=input.nextInt();
-		}while(exponent==1);
-	}
-    
+			}
+			}while(exponent==1);
 	
+	}
 
 }
 			
+		
+
+	
+	
 		
 
 	

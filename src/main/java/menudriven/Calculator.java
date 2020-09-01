@@ -3,6 +3,7 @@ package menudriven;
 import java.util.Scanner;
 
 public class Calculator {
+	//The method for selecting for addition or substraction or multiplication or division or expression 
 	public void menuDriven(){
 
 		int exponent;
@@ -18,10 +19,11 @@ public class Calculator {
 			case 1:
 			      Addition addition=new Addition();
 			      addition.add();
+			      addition.collections();
 		          break;
 			case 2:
 			      Substraction subs=new Substraction();
-			      subs.sub();
+			      subs.substract();
 		          break;
 			case 3:
 			      Multiplication multiplication=new Multiplication();

@@ -1,35 +1,99 @@
 package menudriven;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 
 
-public class Employee {
-	String name;
-	int id;
-	String skills;
-	Employee(String name,int id,String skills){
+   public class Employee implements Comparable<Employee>{
+	private String name;
+	private int id;
+	private String skills;
+	
+	Employee(String name, int id, String Skills){
 		this.name=name;
 		this.id=id;
 		this.skills=skills;
 	}
+	public int compareTo(Employee employeeid) {
+	
+		return this.id - employeeid.id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getSkills() {
+		return skills;
+	}
+
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+   }
+   class NameCompare implements Comparator<Employee> 
+   { 
+       public int compare(Employee employee1, Employee employee2) 
+       { 
+           return employee1.getName().compareTo(employee2.getName()); 
+       } 
+   } 
+   class Skillscompare implements Comparator<Employee> 
+   { 
+       public int compare(Employee employee1, Employee employee2) 
+       { 
+           return employee1.getSkills().compareTo(employee2.getSkills()); 
+       } 
+   } 
    
-	public static void main(String[] args) {
-		Employee employee1=new Employee("Tom",1234,"QA");
-		Employee employee2=new Employee("Jerry",1235,"Admin");
-		Employee employee3=new Employee("vasudha",1236,"QA");
-		
+  class Usermain 
+  {
+	public static void main(String[] args)
+	
+	{
 		ArrayList<Employee> employeevalues=new ArrayList<Employee>();
-          employeevalues.add(employee1);
-          employeevalues.add(employee2);
-          employeevalues.add(employee3);
-           Iterator <Employee> iteratorvalues=employeevalues.iterator();
-           while(iteratorvalues.hasNext()){
-        	   Employee values=iteratorvalues.next();
-        	   System.out.println(values.name);
-        	  System.out.println(values.id);
-        	   System.out.println(values.skills);
-           }
+          employeevalues.add(new Employee("vasudha",1234,"java"));
+          employeevalues.add(new Employee("Tom",1232,"corejava"));
+          employeevalues.add(new Employee("Meery",1230,"python"));
+          
+          System.out.println("Sorted by name"); 
+          NameCompare nameCompare = new NameCompare(); 
+          Collections.sort(employeevalues, nameCompare); 
+          for (Employee employee: employeevalues) 
+              System.out.println(employee.getName() + " " + employee.getId() + " " +
+            		   employee.getSkills()); 
+          
+          System.out.println("\nSorted by id"); 
+          Collections.sort(employeevalues); 
+          for (Employee movie: employeevalues) 
+             System.out.println(movie.getId() + " " +movie.getSkills() + " " +
+                      movie.getName()+" ");
+                                    
+          System.out.println("Sorted by skills"); 
+          Skillscompare skillsCompare = new Skillscompare(); 
+          Collections.sort(employeevalues, nameCompare); 
+          for (Employee employee: employeevalues) 
+              System.out.println(employee.getSkills() + " " + 
+            		  employee.getName() + " " + 
+            		  employee.getId()); 
+    
+	
 }
-}
+  
+	
+	}
